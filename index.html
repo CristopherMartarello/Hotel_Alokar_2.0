@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alokar</title>
+
+    <!-- Links -->
+
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="script.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="sidebar">
+                <div class="alokar">
+                    <h1>ALOKAR</h1>
+                </div>
+                <div class="user">
+                    <img src="assets/user.png" class="user-img">
+                    <div>
+                        <h2>Cristopher Martarello</h2>
+                        <p>cristopher@gmail.com</p>
+                    </div>
+                </div>
+                <ul>
+                    <li onclick="ClienteManager.showPanel('clients-panel')"><img src="assets/clientes.png">
+                        <p>Reservas</p>
+                    </li>
+                    <li onclick="ClienteManager.showPanel('checkin-panel')"><img src="assets/checkin.png">
+                        <p>Check-in</p>
+                    </li>
+                    <li onclick="ClienteManager.showPanel('checkout-panel')"><img src="assets/checkout.png">
+                        <p>Check-out</p>
+                    </li>
+                    <li onclick="ClienteManager.showPanel('service-panel')"><img src="assets/service.png">
+                        <p>Serviços</p>
+                    </li>
+                    <li onclick="ClienteManager.showPanel('contact-panel')"><img src="assets/contact.png">
+                        <p>Contato</p>
+                    </li>
+                </ul>
+                <ul>
+                    <!-- <li><img src="assets/logout.png">
+                        <p>Logout</p>
+                    </li> -->
+                </ul>
+            </div>
+
+            <div class="content">
+                <div class="panel" id="clients-panel">
+                    <h2>Clientes Hospedados</h2>
+                    <hr>
+                    <input type="text" id="searchClients" placeholder="Faça sua busca">
+                    <button class="fas fa-search"></button>
+                    <div class="clients-overflow">
+                        <table id="clients-table">
+                            <thead id="clients-head">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Telefone</th>
+                                    <th>Data de Check-in</th>
+                                    <th>Data de Check-out</th>
+                                    <th>N° do Quarto</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="clients-body">
+                                <tr>
+                                    <!-- dados vindos do locastorage -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel" id="checkin-panel">
+                    <h2>Área de Check-in</h2>
+                    <hr>
+                    <div class="register">
+                        <label for="name">Nome do Hóspede</label>
+                        <input type="text" id="clientName" placeholder="Digite aqui">
+                    </div>
+                    <div class="register">
+                        <label for="phone">Telefone</label>
+                        <input type="text" id="clientPhone" placeholder="Digite aqui">
+                    </div>
+                    <div class="register">
+                        <label for="email">E-mail</label>
+                        <input type="text" id="clientEmail" placeholder="Digite aqui">
+                    </div>
+                    <div class="register">
+                        <label for="qtd">Qtd. Acompanhantes</label>
+                        <input type="number" id="clientPartners" placeholder="Digite aqui">
+                    </div>
+                    <div class="register-date">
+                        <label for="startDate">Data de Chegada</label>
+                        <input type="datetime-local" id="startDate" name="startDate">
+                    </div>
+                    <div class="register-date">
+                        <label for="startDate">Data de Saída</label>
+                        <input type="datetime-local" id="endDate" name="endDate">
+                    </div>
+                    <div class="register">
+                        <label for="services">Serviços inclusos?</label>
+                        <select class="select-box" name="services" id="services">
+                            <option value="yes">Sim</option>
+                            <option value="no">Não</option>
+                        </select>
+                    </div>
+                    <div class="register">
+                        <label for="qtd">Número do Quarto</label>
+                        <input type="number" id="clientRoom" placeholder="Digite aqui">
+                    </div>
+                    <div class="checkin">
+                        <button id="checkin-button" onclick="ClienteManager.submitData()">
+                            Confirmar Check-in!
+                        </button>
+                    </div>
+                </div>
+                <div class="panel" id="checkout-panel">
+                    <h2>Área de Check-Out</h2>
+                    <hr>
+                    <div class="register">
+                        <label for="name">Nome do Hóspede</label>
+                        <input type="text" id="checkoutName" placeholder="Digite aqui">
+                    </div>
+                    <div class="register">
+                        <label for="phone">Telefone</label>
+                        <input type="text" id="checkoutPhone" placeholder="Digite aqui">
+                    </div>
+                    <div class="register">
+                        <label for="email">E-mail</label>
+                        <input type="text" id="checkoutEmail" placeholder="Digite aqui">
+                    </div>
+                    <div class="register">
+                        <label for="qtd">Qtd. Acompanhantes</label>
+                        <input type="number" id="checkoutPartners" placeholder="Digite aqui">
+                    </div>
+                    <div class="register-date">
+                        <label for="startDate">Data de Chegada</label>
+                        <input type="datetime-local" id="startDate" name="startDate">
+                    </div>
+                    <div class="register-date">
+                        <label for="startDate">Data de Saída</label>
+                        <input type="datetime-local" id="endDate" name="endDate">
+                    </div>
+                    <div class="register">
+                        <label for="qtd">Número do Quarto</label>
+                        <input type="number" id="checkoutRoom" placeholder="Digite aqui">
+                    </div>
+                    <div class="checkout">
+                        <button id="checkout-button" onclick="ClienteManager.checkout()">
+                            Confirmar Check-out!
+                        </button>
+                    </div>
+                </div>
+                <div class="panel" id="service-panel">
+                    <h2>Serviços adicionais</h2>
+                    <hr>
+                    <div class="register">
+                        <label for="qtd">Número do Quarto</label>
+                        <input type="number" id="serviceRoom" placeholder="Digite aqui">
+                    </div>
+                    <div class="service">
+                        <input type="checkbox" id="serviceCheckbox" name="myCheckbox">
+                        <img src="assets/servico-de-quarto.png">
+                    </div>
+                    <div class="service">
+                        <input type="checkbox" id="serviceCheckbox" name="myCheckbox">
+                        <img src="assets/maquina-de-lavar.png">
+                    </div>
+                    <div class="service">
+                        <input type="checkbox" id="serviceCheckbox" name="myCheckbox">
+                        <img src="assets/garcom.png">
+                    </div>
+                    <div class="checkout">
+                        <button id="checkout-button" onclick="ClienteManager.addService()">
+                            Adicionar Serviços!
+                        </button>
+                    </div>
+                </div>
+                <div class="panel" id="contact-panel">
+                    <h2>Conheça o nosso time!</h2>
+                    <hr>
+                    <div class="register" id="cards-contact">
+                        <a href="https://www.instagram.com/cristopher_m1/" target="_blank">
+                            <label for="person">Cristopher</label>
+                            <img src="assets/cris.png" id="person">
+                            <p>Developer</p>
+                        </a>
+                    </div>
+                    <div class="register" id="cards-contact">
+                        <a href="https://www.instagram.com/luiisvicarri/" target="_blank">
+                            <label for="person">Luis</label>
+                            <img src="assets/luis.png" id="person">
+                            <p>Developer</p>
+                        </a>
+                    </div>
+                    <div class="register" id="cards-contact">
+                        <a href="https://www.instagram.com/lo_muralha23/" target="_blank">
+                            <label for="person">Maria Lorena</label>
+                            <img src="assets/lorena.png" id="person" alt="Imagem de Maria Lorena">
+                            <p>Product Owner</p>
+                        </a>
+                    </div>
+                    <div class="register" id="cards-contact">
+                        <a href="https://www.instagram.com/miguelserea/" target="_blank">
+                            <label for="person">Miguel</label>
+                            <img src="assets/miguel.png" id="person">
+                            <p>Scrum Master</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    
+</body>
+</html>

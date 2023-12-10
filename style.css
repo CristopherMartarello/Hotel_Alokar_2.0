@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+.header {
+    width: 100%;
+    height: 100vh;
+    background-image: url(assets/rockstar.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.content {
+    padding: 20px 20px 0px 20px;
+    color: #000;
+}
+
+.panel {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    width: 85%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    margin-left: 175px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.sidebar:hover + .content .panel {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    width: 85%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    margin-left: 250px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.sidebar {
+    width: 110px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 30px 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    transition: width 0.5s;
+}
+
+.alokar {
+    display: flex;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alokar h1 {
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 15px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+.user div {
+    display: none;
+}
+
+.user h2 {
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.user-img {
+    width: 40px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0 15px;
+}
+
+ul li {
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+ul li img {
+    width: 30px;
+    margin-right: 0px;
+}
+
+ul li p {
+    white-space: nowrap;
+    display: none;
+}
+
+.sidebar:hover {
+    width: 250px;
+}
+
+.sidebar:hover .alokar h1{
+    font-size: 35px;
+}
+
+.sidebar:hover .user div {
+    display: block;
+}
+
+.sidebar:hover .user {
+    width: 100%;
+}
+
+.sidebar:hover .user {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.sidebar:hover .user-img {
+    margin: 0;
+}
+
+.sidebar:hover ul li p {
+    display: block;
+}
+
+.sidebar:hover ul li img {
+    margin-right: 10px;
+}
+
+.sidebar:hover ul li {
+    justify-content: flex-start;
+}
+
+.panel h2 {
+    padding: 10px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.panel span {
+    padding: 10px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #000;
+    margin: 10px 0;
+}
+
+.register, .register-date, .service {
+    background: rgba(255, 255, 255, 0.8);
+    display: inline-block;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: 18px;
+    margin-top: 50px;
+    transition: transform 0.4s ease;
+}
+
+.register:hover, .register-date:hover, .service:hover {
+    transform: scale(1.1);
+}
+
+.register label, .register input, .register-date label, .register-date input, .register select, .service label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.register label, .register-date label, .service label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.register input, .register-date input, .register select {
+    border: none;
+    border-bottom: 2px solid #18326b;
+    width: 250px;
+    border-radius: 2px;
+    height: 30px;
+    padding: 7px;
+    font-size: 20px;
+    background: none;
+    outline: none;
+}
+
+.register input:focus, .register-date input:focus, .service input:focus {
+    border-bottom: 2px solid #18326b; 
+}
+
+.register select {
+    width: 250px;
+    border-radius: 5px;
+    padding: 2px;
+    font-size: 20px;
+    background: none;
+    outline: none;
+}
+
+.service input[type="checkbox"] {
+    padding: 30px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.service img {
+    width: 64px;
+    height: 60px;
+}
+
+#cards-contact img{
+    width: 180px;
+    height: 180px;
+    margin-left: 0px;
+    cursor: pointer;
+}
+
+.checkin {
+    text-align: center;
+    justify-content: center;
+    padding: 40px;
+    margin: 30px;
+}
+
+.checkin button {
+    font-size: 35px;
+    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.checkin button:hover {
+    transform: scale(1.1);
+}
+
+.checkout {
+    text-align: center;
+    justify-content: center;
+    padding: 40px;
+    margin: 30px;
+}
+
+.checkout button {
+    font-size: 35px;
+    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.checkout button:hover {
+    transform: scale(1.1);
+}
+
+#clients-table {
+    width: 95%;
+    border: 2px solid #000;
+    margin-left: 35px;
+    border-collapse: collapse;
+}
+
+.clients-overflow {
+    max-height: 37rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#clients-table th, td {
+    border: 1px solid #000;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+td {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#clients-panel input {
+    margin-left: 61rem;
+    width: 330px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-bottom: 2px solid #18326b;
+    border-radius: 2px;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+
+#clients-panel button {
+    font-size: 19px;
+    padding: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 0px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid #18326b;
+    cursor: pointer;
+}
+
+#clients-head {
+    background-color: #18326b;
+}
+
+a {
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer; 
+}
+
+
+

@@ -98,14 +98,6 @@
                         <label for="qtd">Qtd. Acompanhantes</label>
                         <input type="number" id="clientPartners" placeholder="Digite aqui">
                     </div>
-                    <div class="register-date">
-                        <label for="startDate">Data de Chegada</label>
-                        <input type="datetime-local" id="startDate" name="startDate">
-                    </div>
-                    <div class="register-date">
-                        <label for="startDate">Data de Saída</label>
-                        <input type="datetime-local" id="endDate" name="endDate">
-                    </div>
                     <div class="register">
                         <label for="services">Serviços inclusos?</label>
                         <select class="select-box" name="services" id="services">
@@ -116,6 +108,14 @@
                     <div class="register">
                         <label for="qtd">Número do Quarto</label>
                         <input type="number" id="clientRoom" placeholder="Digite aqui">
+                    </div>
+                    <div class="register-date">
+                        <label for="startDate">Data de Chegada</label>
+                        <input type="datetime-local" id="startDate" name="startDate">
+                    </div>
+                    <div class="register-date">
+                        <label for="startDate">Data de Saída</label>
+                        <input type="datetime-local" id="endDate" name="endDate">
                     </div>
                     <div class="checkin">
                         <button id="checkin-button" onclick="ClienteManager.submitData()">

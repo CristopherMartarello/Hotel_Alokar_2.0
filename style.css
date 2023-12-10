@@ -210,7 +210,7 @@ hr {
 .register input, .register-date input, .register select {
     border: none;
     border-bottom: 2px solid #18326b;
-    width: 250px;
+    width: 100%;
     border-radius: 2px;
     height: 2%;
     padding: 1%;
@@ -224,9 +224,9 @@ hr {
 }
 
 .register select {
-    width: 250px;
+    width: 100%;
     border-radius: 5px;
-    padding: 2px;
+    padding: 1%;
     font-size: 20px;
     background: none;
     outline: none;
